@@ -86,6 +86,6 @@ accelerate launch --num_processes 8 --multi_gpu --mixed_precision fp16 \
 This repository is released under `CC-BY-NC 4.0` (Attribution-NonCommercial
 4.0 International). See `LICENSE`.
 
-Parts of the model implementation are derived from Meta's MAE codebase[https://github.com/facebookresearch/mae](https://github.com/facebookresearch/mae). In particular, `pre_model.py` retains the upstream copyright and attribution
+Parts of the model implementation are derived from [Meta's MAE codebase](https://github.com/facebookresearch/mae). In particular, `pre_model.py` retains the upstream copyright and attribution
 headers. Please keep the attribution notices intact when redistributing or
 modifying this repository.
