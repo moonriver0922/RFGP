@@ -1,0 +1,59 @@
+dataset:
+  n_seq: 1
+networks:
+  mae:
+    decoder_depth: 1
+    decoder_embed_dim: 256
+    decoder_num_heads: 8
+    depth: 12
+    embed_dim: 1024
+    in_chans: 1
+    mlp_ratio: 4
+    norm_pix_loss: false
+    num_heads: 8
+    patch_size: 3
+  renderer:
+    scale_worldsize: 1
+    mode: spectrum
+    defaults:
+      scale_worldsize: 1
+      near: 0
+      far: 15
+      n_samples: 16
+path:
+  train_data_roots:
+    ble: data/ble/train
+    wifi: data/wifi/train
+    iiot: data/iiot/train
+    rfid: data/rfid/train
+  test_data_roots:
+    ble: data/ble/test
+    wifi: data/wifi/test
+    iiot: data/iiot/test
+    rfid: data/rfid/test
+  expname: pretrain/
+  load_ckpt: false
+  load_pretrain: false
+  logdir: outputs/logs/pretrain/
+  pre_ckpts: ""
+  test_fig_path: outputs/figs/pretrain/
+  test_pos_path: outputs/pos/pretrain/
+  train_fig_path: outputs/figs/pretrain/
+training:
+  T_max: 1000
+  #fixed batch size
+  batch_size: 1
+  beta: 0.01
+  #tuned chunksize
+  chunksize: 64
+  i_save: 1
+  loc_type: 3D
+  loss: L3
+  base_lr: 3e-4
+  final_lr: 3e-5
+  warmup_epochs: 50
+  start_warmup_lr: 3e-5
+  total_epochs: 1500
+  weight_decay: 1e-3
+  data_fraction: 0.3
+  resample_every_epochs: 20

@@ -1,0 +1,30 @@
+# Large artifacts / data (keep locally; do not upload)
+logs/
+pos/
+figs/
+ble/
+data/**/*.t
+outputs/
+*.tar
+*.pt
+*.pth
+*.t
+
+# Python / editor junk
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
