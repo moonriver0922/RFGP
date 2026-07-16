@@ -1,14 +1,6 @@
-# RFGP （ACM IMWUT/Ubicomp 2026）
+# *Radiance-Field Guided Pretraining: Scaling Localization Models with Unlabeled Wireless Signals* ( ACM IMWUT/Ubicomp 2026)
 
-RFGP is a spectrum pretraining pipeline for RF localization. It trains a MAE+MoE encoder together with per-scene NeRF renderers to reconstruct spatial spectrum maps.
 
-## What Is Included
-
-- `pre_runner.py`: train entrypoint
-- `pre_model.py`: MAE + MoE + scene-aware rendering model
-- `dataset.py`: tensor loader, chunking, scene discovery, subsetting
-- `configs/pre.yaml`: default training config
-- `requirements.txt`: Python dependencies
 
 ## Environment
 
@@ -36,28 +28,7 @@ pip install -r requirements.txt
 
 
 
-## Data Format
-
-Each `.t` file is loaded with `torch.load(...)`.
-
-Supported sample layouts:
-
-1. Real / preferred format:
-
-```text
-(N, F), F = 332
-scenario(1) | gateways(7) | spectrum(324)
-```
-
-Notes:
-
-- `scenario` is the scene id used to build the NeRF^2 dynamically.
-- `gateways(7)` means `xyz(3) + quaternion(4)`.
-- `spectrum(324)` is a flattened `9 x 36` spectrum map.
-
-
-
-## Data Directory Layout
+## Data Layout
 
 The default config expects:
 
@@ -89,7 +60,7 @@ data/wifi/train/train_100.t
 ...
 ```
 
-
+Dataset could be found [here]([https://wireless-spectrum.org/](https://wireless-spectrum.org/)).
 
 ## Run Training
 
@@ -104,7 +75,7 @@ Multi-GPU with mixed precision:
 Set `--num_processes` to the number of GPUs you want to use:
 
 ```bash
-accelerate launch --num_processes <NUM_GPUS> --multi_gpu --mixed_precision fp16 \
+accelerate launch --num_processes 8 --multi_gpu --mixed_precision fp16 \
   pre_runner.py --config configs/pre.yaml --mode train
 ```
 
@@ -115,7 +86,6 @@ accelerate launch --num_processes <NUM_GPUS> --multi_gpu --mixed_precision fp16 
 This repository is released under `CC-BY-NC 4.0` (Attribution-NonCommercial
 4.0 International). See `LICENSE`.
 
-Parts of the model implementation are derived from Meta's MAE codebase. In
-particular, `pre_model.py` retains the upstream copyright and attribution
+Parts of the model implementation are derived from Meta's MAE codebase[https://github.com/facebookresearch/mae](https://github.com/facebookresearch/mae)). In particular, `pre_model.py` retains the upstream copyright and attribution
 headers. Please keep the attribution notices intact when redistributing or
 modifying this repository.
