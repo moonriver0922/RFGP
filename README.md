@@ -1,7 +1,5 @@
 # *Radiance-Field Guided Pretraining: Scaling Localization Models with Unlabeled Wireless Signals* ( ACM IMWUT/Ubicomp 2026)
 
-
-
 ## Environment
 
 Recommended:
@@ -25,8 +23,6 @@ conda create -n rfgp python=3.8 -y
 conda activate rfgp
 pip install -r requirements.txt
 ```
-
-
 
 ## Data Layout
 
@@ -79,7 +75,24 @@ accelerate launch --num_processes 8 --multi_gpu --mixed_precision fp16 \
   pre_runner.py --config configs/pre.yaml --mode train
 ```
 
+## How to cite
 
+```bibtex
+@article{wang2026radiance,
+  author = {Wang, Guosheng and Wang, Shen and Yang, Lei},
+  title = {Radiance-Field Guided Pretraining: Scaling Localization Models with Unlabeled Wireless Signals},
+  journal = {Proc. ACM Interact. Mob. Wearable Ubiquitous Technol.},
+  volume = {10},
+  number = {3},
+  articleno = {156},
+  numpages = {30},
+  year = {2026},
+  month = sep,
+  doi = {10.1145/3831969},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA}
+}
+```
 
 ## License
 
