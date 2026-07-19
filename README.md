@@ -1,5 +1,7 @@
 # *Radiance-Field Guided Pretraining: Scaling Localization Models with Unlabeled Wireless Signals* ( ACM IMWUT/Ubicomp 2026)
 
+[Architecture overview (PDF)](architecture.pdf)
+
 ## Environment
 
 Recommended:
@@ -75,6 +77,8 @@ accelerate launch --num_processes 8 --multi_gpu --mixed_precision fp16 \
   pre_runner.py --config configs/pre.yaml --mode train
 ```
 
+
+
 ## How to cite
 
 ```bibtex
@@ -94,11 +98,15 @@ accelerate launch --num_processes 8 --multi_gpu --mixed_precision fp16 \
 }
 ```
 
+
+
 ## License
 
 This repository is released under `CC-BY-NC 4.0` (Attribution-NonCommercial
 4.0 International). See `LICENSE`.
 
-Parts of the model implementation are derived from [Meta's MAE codebase](https://github.com/facebookresearch/mae). In particular, `pre_model.py` retains the upstream copyright and attribution
+
+## Acknowledgment
+Parts of the model implementation are derived from [Meta's MAE codebase](https://github.com/facebookresearch/mae) and [NeRF^2](https://github.com/XPengZhao/NeRF2). In particular, `pre_model.py` retains the upstream copyright and attribution
 headers. Please keep the attribution notices intact when redistributing or
 modifying this repository.
