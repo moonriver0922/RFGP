@@ -1,6 +1,6 @@
 # *Radiance-Field Guided Pretraining: Scaling Localization Models with Unlabeled Wireless Signals* ( ACM IMWUT/Ubicomp 2026)
 
-[Architecture overview (PDF)](architecture.pdf)
+![Architecture overview](assets/architecture.png)
 
 ## Environment
 
