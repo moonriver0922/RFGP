@@ -1,22 +1,5 @@
 # -*- coding: utf-8 -*-
 """Spectrum pretraining dataset loaders.
-
-Each sample tensor is laid out along the last dimension as one of::
-
-    Real / preferred (332)::
-        scenario(1) | gateways(7) | spectrum(9*36)
-
-    Legacy with unused timestamp (333)::
-        ts(1) | scenario(1) | gateways(7) | spectrum(9*36)
-
-Gateway fields are ``xyz`` followed by a quaternion ``(w, x, y, z)``.
-Spectrum is a flattened 9 (elevation) x 36 (azimuth) spatial map.
-
-All ``*.t`` files under each configured data-root directory are loaded; scene
-ids are taken from the ``scenario`` field inside the tensors (not from names).
-
-Optional training subsetting (CPU full pool + per-scene index sampling) is
-handled via :meth:`sample_chunk_indices`.
 """
 import os
 from typing import Dict, List, Optional, Sequence, Tuple, Union
@@ -30,7 +13,7 @@ GATEWAY_DIM = 7
 SCENARIO_DIM = 1
 # Real data: no timestamp.
 FEATURE_DIM = SCENARIO_DIM + GATEWAY_DIM + SPT_DIM  # 332
-# Legacy dumps that prepend an unused timestamp.
+
 FEATURE_DIM_WITH_TS = 1 + FEATURE_DIM  # 333
 
 
